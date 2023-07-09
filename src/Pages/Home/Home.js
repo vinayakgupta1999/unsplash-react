@@ -1,4 +1,4 @@
-import React, { Suspense, useContext, useEffect } from "react";
+import React, {useEffect } from "react";
 import Header from "../../components/Header/Header";
 import Main from "../../components/Main/Main";
 import SplashGrid from "../../components/SplashGrid/SplashGrid";
