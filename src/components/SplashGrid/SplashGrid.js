@@ -1,5 +1,5 @@
-import React, { useRef, useState } from "react";
-import "./SplashGrid.scss";
+import React, { useRef } from "react";
+import "./SplashGrid.css";
 import useIntersectionObserver from "../../hooks/userIntersectionObserver";
 import { useSelector } from "react-redux";
 
