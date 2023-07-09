@@ -10,6 +10,10 @@ export default function Home() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    fetchImages();
+  }, []); 
+
+  const fetchImages = async () => {
     try {
       const data = await GetALlImages();
       console.log(data);
@@ -17,8 +21,7 @@ export default function Home() {
     } catch (error) {
       console.log("Error fetching images:", error);
     }
-  }, []); 
-
+  };
 
 
   return (
