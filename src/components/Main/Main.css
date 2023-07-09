@@ -1,0 +1,67 @@
+#main {
+  color: white;
+  padding: 1rem 0;
+  background-blend-mode: overlay;
+width: 100%;
+background: url("https://source.unsplash.com/collection/220381/1600x900") no-repeat center/cover, linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3));
+}
+
+#main .content {
+  width: 100%;
+}
+
+#main .content .main-center {
+  padding: 8rem 1rem 10rem 1rem;
+  width: 50%;
+  margin: 0 auto;
+}
+
+#main .content .main-center .title {
+  font-size: clamp(2.5rem, 5vw, 3rem);
+  padding: 1rem 0;
+  text-transform: capitalize;
+}
+
+#main .content .main-center .description {
+  padding-bottom: 2rem;
+  line-height: 1.8rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+#main .content .main-center .description > a {
+  text-decoration: underline;
+  opacity: 0.8;
+}
+
+#main .content .main-center .description > a:hover {
+  opacity: 1;
+}
+
+@media only screen and (max-width: 768px) {
+  #main .content .main-center {
+    width: 100%;
+  }
+}
+
+#main .main-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  flex-wrap: wrap;
+}
+
+#main .main-footer > p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.452);
+}
+
+#main .main-footer > p > a {
+  color: white;
+  opacity: 0.8;
+}
+
+#main .main-footer > p > a:hover {
+  opacity: 1;
+  text-decoration: none;
+}

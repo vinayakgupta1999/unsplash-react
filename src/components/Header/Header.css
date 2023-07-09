@@ -1,0 +1,146 @@
+.wrapper {
+    display: flex;
+    color: grey;
+  }
+  
+  .navbar-wrapper {
+    flex: 1;
+    align-self: flex-start;
+    padding: 0.3rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  @media only screen and (max-width: 40em) {
+    .navbar-wrapper {
+      position: fixed;
+      width: 100vw;
+      top: 0;
+      z-index: 100;
+    }
+  }
+  
+  .logo {
+    padding: 0.5rem 1rem;
+  }
+  
+  @media only screen and (max-width: 40em) {
+    .logo {
+      padding: 0.5rem 0;
+    }
+    .logo > svg {
+      fill: white;
+    }
+  }
+  
+  .navbar-items {
+    display: flex;
+    list-style: none;
+    align-items: center;
+  }
+  
+  @media only screen and (max-width: 40em) {
+    .navbar-items {
+      position: fixed;
+      right: 0;
+      top: 0;
+      background: white;
+      height: 100%;
+      width: 13rem;
+      -webkit-box-shadow: -2px 0 7px 0 #c2c2c2;
+      box-shadow: -2px 0 7px 0 #c2c2c2;
+      flex-direction: column;
+      padding: 1rem 2rem;
+      transition: 0.2s ease-out;
+      transform: translateX(100%);
+    }
+  }
+  
+  .navbar-items.open {
+    transform: translateX(0);
+  }
+  
+  .navbar-item {
+    padding: 0 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .navbar-item > .nav-item,
+  .navbar-item > .navicon {
+    color: grey;
+    text-decoration: none;
+    padding: 0.5rem 0rem;
+  }
+  
+  .navbar-item > .nav-icon {
+    font-size: 1.2rem;
+  }
+  
+  .navbar-item > .nav-icon.nav-icon-lg {
+    font-size: 2rem;
+  }
+  
+  .navbar-item > *:hover {
+    color: black;
+  }
+  
+  @media only screen and (max-width: 40em) {
+    .navbar-item {
+      margin: 1rem 0;
+    }
+  }
+  
+  .hamburger-button-wrapper {
+    height: 1rem;
+    width: 2.5rem;
+    position: relative;
+    font-size: 12px;
+    display: none;
+  }
+  
+  @media only screen and (max-width: 40em) {
+    .hamburger-button-wrapper {
+      display: block;
+    }
+  }
+  
+  .hamburger-button-wrapper button {
+    /* Remove default button styles */
+    border: none;
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  .lines {
+    top: 50%;
+    margin-top: -0.125em;
+    position: relative;
+  }
+  
+  .lines,
+  .lines:after,
+  .lines:before {
+    height: 2px;
+    pointer-events: none;
+    display: block;
+    content: "";
+    width: 100%;
+    background-color: black;
+    position: absolute;
+  }
+  
+  @media only screen and (max-width: 40em) {
+    .lines {
+      background-color: white;
+    }
+  }
+  .lines:after {
+    top: -0.7rem;
+  }
+  .lines:before {
+    top: 0.7rem;
+  }
+  
