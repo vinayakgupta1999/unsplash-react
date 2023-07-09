@@ -12,7 +12,7 @@ export default function Home() {
 
   useEffect(() => {
     fetchImages();
-  }, []);
+  }, [fetchImages]);
 
   const fetchImages = async () => {
     try {
