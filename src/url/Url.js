@@ -1,2 +1,2 @@
-export const searchUrl = `${process.env.REACT_APP_BASE_URL}/search/photos?per_page=50&query=`;
-export const getPhotos = `https://api.unsplash.com/photos/random/?count=50&client_id=${process.env.REACT_APP_ACCESS_KEY}`;
+export const searchUrl=(page) => `${process.env.REACT_APP_BASE_URL}/search/photos?page=${page}&per_page=10&query=`;
+export const getPhotos=(page) => `https://api.unsplash.com/photos?page=${page}&per_page=10&client_id=${process.env.REACT_APP_ACCESS_KEY}`;

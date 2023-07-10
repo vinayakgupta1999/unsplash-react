@@ -9,10 +9,10 @@ const imageSlice = createSlice({
   initialState,
   reducers: {
     searchImages: (state, action) => {
-      state.images = action.payload;
+      state.images = [...state.images,...action.payload];
     },
     getImages: (state, action) => {
-        state.images = action.payload;
+        state.images = [...state.images,...action.payload];
       },
   },
 });

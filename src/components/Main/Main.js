@@ -2,7 +2,7 @@ import React from "react";
 import "./Main.css";
 import SearchBar from "../SearchBar/SearchBar";
 
-export default function Main() {
+export default function Main({page,setPage,query,setQuery,fetchImages}) {
   return (
     <div id="main">
       <div className="content">
@@ -14,7 +14,7 @@ export default function Main() {
             <br />
             Powered by creators everywhere.
           </h3>
-          <SearchBar />
+          <SearchBar page={page} setPage={setPage} query={query} setQuery={setQuery} fetchImages={() => fetchImages()} />
         </div>
         <div className="main-footer">
           <p>

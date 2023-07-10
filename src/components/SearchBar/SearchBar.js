@@ -4,22 +4,14 @@ import { GetALlImages, SearchImage } from "../api/api";
 import { useDispatch } from "react-redux";
 import { getImages, searchImages } from "../../redux/ImagesSlice";
 
-export default function SearchBar() {
+export default function SearchBar({ page, setPage,query,setQuery,fetchImages }) {
   const dispatch = useDispatch()
-  const [query, setQuery] = useState("");
   const handleSubmit = async (e, term) => {
+    dispatch(searchImages([]))
+    setPage(1)
     e.preventDefault();
     setQuery(term);
-if(query){
-
-  const data = await SearchImage(term);
-
-  dispatch(searchImages(data))
-}else{
-  const data = await GetALlImages(term);
-
-  dispatch(getImages(data))
-}
+    fetchImages()
   };
 
   return (

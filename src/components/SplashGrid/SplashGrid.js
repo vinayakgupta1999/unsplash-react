@@ -1,44 +1,45 @@
-import React, { useRef } from "react";
+import React from "react";
 import "./SplashGrid.css";
-import useIntersectionObserver from "../../hooks/userIntersectionObserver";
 import { useSelector } from "react-redux";
+import { useEffect } from "react";
 
-export default function SplashGrid() {
-  const [isVisible, setIsVisible] = React.useState(false);
-  const ref = useRef();
+export default function SplashGrid({ isLoading, page, fetchImages,query }) {
   const images = useSelector((state) => state.images.images)
 
-  useIntersectionObserver({
-    target: ref,
-    onIntersect: ([{ isIntersecting }], observerElement) => {
-      if (isIntersecting) {
-        setIsVisible(true);
-        observerElement.unobserve(ref.current);
-      }
-    },
-  });
+  const handleScroll = () => {
+    const isBottom =
+      Math.ceil(window.innerHeight + document.documentElement.scrollTop) >=
+      document.documentElement.offsetHeight - 20;
+    if (isBottom && !isLoading) {
+      fetchImages()
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [page]);
 
   return (
-    <section id="splashgrid" ref={ref}>
-      <div className="container">
-        <ul className="grid">
-          {images ? (
-            images.map((image) => (
-              <li className="grid__item">
-                {isVisible && (
+    <div>
+      <div id="splashgrid">
+        <div className="container">
+          <ul className="grid">
+            {images?.length ? images?.map((image) => {
+              return (
+                <li className="grid__item">
                   <img
                     className="grid__image"
                     src={image.urls.regular}
                     alt=""
                   />
-                )}
-              </li>
-            ))
-          ) : (
-            <h2>Loading</h2>
-          )}
-        </ul>
+                </li>
+              )
+            }) : ""}
+          </ul>
+        </div>
       </div>
-    </section>
+      {isLoading && <div style={{marginBottom:"10px",width:'100%',display:'flex',justifyContent:'center'}}><div class="loader"></div></div>}
+    </div>
   );
 }
