@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import "./SearchBar.css";
-import { GetALlImages, SearchImage } from "../api/api";
 import { useDispatch } from "react-redux";
-import { getImages, searchImages } from "../../redux/ImagesSlice";
+import {  searchImages } from "../../redux/ImagesSlice";
 
 export default function SearchBar({ page, setPage,query,setQuery,fetchImages }) {
   const dispatch = useDispatch()
